@@ -1,0 +1,18 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-gap: 2px;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+}
+
+.cell input {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}

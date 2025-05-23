@@ -1,0 +1,26 @@
+<h2>Finance Crossword</h2>
+
+<div class="grid">
+  <div *ngFor="let row of [].constructor(gridSize); let r = index" class="row">
+    <div *ngFor="let col of [].constructor(gridSize); let c = index" class="cell">
+      <input *ngIf="isCellUsed(r, c)"
+             maxlength="1"
+             [ngModel]="getLetter(r, c)"
+             (ngModelChange)="onInput($event, r, c)">
+    </div>
+  </div>
+</div>
+
+<button (click)="submit()">Submit</button>
+
+<h3>Clues</h3>
+<ul>
+  <li *ngFor="let w of words">
+    <strong>{{w.id}} ({{w.direction}})</strong>: {{w.clue}}
+    <span *ngIf="results[w.id] !== undefined">
+      — <span [style.color]="isCorrect(w.id) ? 'green' : 'red'">
+        {{ isCorrect(w.id) ? '✔ Correct' : '✘ Incorrect' }}
+      </span>
+    </span>
+  </li>
+</ul>
