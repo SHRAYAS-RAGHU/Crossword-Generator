@@ -1,16 +1,34 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'; // Required for ngModel
 
+// App Component
 import { AppComponent } from './app.component';
-import { CrosswordComponent } from './crossword/crossword.component';
-import { CrosswordService } from './services/crossword.service';
+
+// Custom Components
+import { CrosswordGridComponent } from './components/crossword-grid/crossword-grid.component';
+import { HintsComponent } from './components/hints/hints.component';
+//import { CrosswordGridModule } from './components/crossword-grid/crossword-grid.module';
+import { CommonModule, NgClass, NgFor, NgIf } from '@angular/common';
+
+// Services - CrosswordService is provided in 'root'
 
 @NgModule({
-  declarations: [AppComponent, CrosswordComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule],
-  providers: [CrosswordService],
+  declarations: [
+    AppComponent,
+    HintsComponent,
+    CrosswordGridComponent
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    CommonModule,
+    FormsModule
+  ],
+  providers: [
+    // CrosswordService is already provided in root if @Injectable({ providedIn: 'root' }) is used.
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,0 +1,72 @@
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  h1 {
+    color: #2c3e50;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row; // Default for larger screens
+  gap: 20px;
+
+  @media (max-width: 768px) { // For smaller screens
+    flex-direction: column;
+  }
+}
+
+.crossword-area {
+  flex: 3; // Takes more space
+  display: flex;
+  justify-content: center; // Center grid if it's smaller than container
+  align-items: flex-start;
+}
+
+.hints-area {
+  flex: 2; // Takes less space
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  min-width: 280px; // Ensure hints area is usable
+}
+
+.current-clue-display {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  border-left: 5px solid #007bff;
+
+  h3 {
+    margin-top: 0;
+    color: #0056b3;
+  }
+  p {
+    margin-bottom: 5px;
+  }
+  .correct-indicator {
+    color: green;
+    font-weight: bold;
+  }
+}
+
+.loading-indicator, .error-message {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+}
+
+.error-message {
+    color: red;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: .25rem;
+}

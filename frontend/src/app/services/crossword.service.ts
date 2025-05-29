@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { CrosswordPuzzle, ValidationRequestPayload, ValidationResponsePayload } from '../models/crossword.model';
+import { environment } from '../../environments/environment';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root'
+})
 export class CrosswordService {
-  private baseUrl = 'http://localhost:5000';
+  private apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  getCrossword() {
-    return this.http.get<any>(`${this.baseUrl}/generate`);
+  getCrosswordPuzzle(): Observable<CrosswordPuzzle> {
+    return this.http.get<CrosswordPuzzle>(`${this.apiUrl}/crossword`);
   }
 
-  validateAnswers(answers: any) {
-    return this.http.post<any>(`${this.baseUrl}/validate`, { answers });
+  validateAnswer(payload: ValidationRequestPayload): Observable<ValidationResponsePayload> {
+    return this.http.post<ValidationResponsePayload>(`${this.apiUrl}/validate`, payload);
   }
 }

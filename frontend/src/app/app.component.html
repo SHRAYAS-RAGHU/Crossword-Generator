@@ -1,0 +1,42 @@
+<div class="app-container">
+  <header>
+    <h1>{{ puzzle?.title || title }}</h1>
+  </header>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <main class="container" *ngIf="puzzle && !errorMessage">
+    <section class="crossword-area">
+      <app-crossword-grid
+        [puzzleData]="puzzle"
+        (cellValueChanged)="handleCellVaueChanged($event)"
+        (wordFocus)="handleWordFocus($event)">
+      </app-crossword-grid>
+    </section>
+    <aside class="hints-area">
+      <app-hints
+        [title]="'Hints'"
+        [acrossClues]="acrossClues"
+        [downClues]="downClues"
+        (clueSelected)="handleClueSelected($event)">
+      </app-hints>
+      <div *ngIf="currentFocusedClue" class="current-clue-display">
+        <h3>Current Clue:</h3>
+        <p>
+          <strong>{{ currentFocusedClue?.number }} {{ currentFocusedClue?.direction }}:</strong>
+{{ currentFocusedClue?.clue }} ({{ currentFocusedClue?.length }} letters)
+Correct! Answer: {{ currentFocusedClue?.answer }}
+        </p>
+        <p *ngIf="currentFocusedClue.is_correct" class="correct-indicator">
+            Correct! Answer: {{ currentFocusedClue.answer }}
+        </p>
+      </div>
+    </aside>
+  </main>
+
+  <div *ngIf="!puzzle && !errorMessage" class="loading-indicator">
+    Loading puzzle...
+  </div>
+</div>

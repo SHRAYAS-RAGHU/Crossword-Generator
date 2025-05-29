@@ -1,0 +1,81 @@
+{
+  "title": "Words with Silent Letters",
+  "grid_dimensions": {
+    "rows": 9,
+    "cols": 9
+  },
+  "words": [
+    {
+      "number": 1,
+      "clue": "Sound that bounces back",
+      "answer": "ECHO",
+      "direction": "across",
+      "start_row": 2,
+      "start_col": 1,
+      "silent_indices": [2]
+    },
+    {
+      "number": 2,
+      "clue": "A tool used for cutting food (across)",
+      "answer": "KNIFE",
+      "direction": "across",
+      "start_row": 0,
+      "start_col": 4,
+      "silent_indices": [0]
+    },
+    {
+      "number": 3,
+      "clue": "To inscribe words onto a surface",
+      "answer": "LTCH",
+      "direction": "across",
+      "start_row": 4,
+      "start_col": 4,
+      "silent_indices": [1]
+    },
+    {
+      "number": 4,
+      "clue": "Using your hands to mix dough",
+      "answer": "KNEAD",
+      "direction": "across",
+      "start_row": 6,
+      "start_col": 0,
+      "silent_indices": [0]
+    },
+    {
+      "number": 5,
+      "clue": "Another word for 'aroma'",
+      "answer": "SCENT",
+      "direction": "down",
+      "start_row": 0,
+      "start_col": 0,
+      "silent_indices": [1]
+    },
+    {
+      "number": 2,
+      "clue": "Another word for 'wisdom' (down)",
+      "answer": "KNOWLEDGE",
+      "direction": "down",
+      "start_row": 0,
+      "start_col": 4,
+      "silent_indices": [0, 2, 7]
+    },
+    {
+      "number": 6,
+      "clue": "Another word for 'hear'",
+      "answer": "LISTEN",
+      "direction": "down",
+      "start_row": 0,
+      "start_col": 6,
+      "silent_indices": [3]
+    },
+    {
+      "number": 7,
+      "clue": "Another word for quitting a job",
+      "answer": "RESIGN",
+      "direction": "down",
+      "start_row": 0,
+      "start_col": 8,
+      "silent_indices": [3]
+    }
+  ]
+}

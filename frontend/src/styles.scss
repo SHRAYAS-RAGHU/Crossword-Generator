@@ -1,0 +1,31 @@
+/* Global styles */
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; // Allow wrapping on smaller screens
+}
+
+.crossword-area {
+  flex: 2; // Grid takes more space
+  min-width: 300px; // Minimum width for the grid area
+}
+
+.hints-area {
+  flex: 1; // Hints take less space
+  min-width: 250px; // Minimum width for the hints area
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: #0056b3;
+}

@@ -1,0 +1,19 @@
+<div class="hints-container">
+  <h2>{{ title }}</h2>
+  <div class="clue-list">
+    <h3>Across</h3>
+    <ul>
+      <li *ngFor="let clue of acrossClues" (click)="onClueClick(clue)" [class.correct]="clue.is_correct">
+        <strong>{{ clue.number }}.</strong> {{ clue.clue }} ({{clue.length}})
+      </li>
+    </ul>
+  </div>
+  <div class="clue-list">
+    <h3>Down</h3>
+    <ul>
+      <li *ngFor="let clue of downClues" (click)="onClueClick(clue)" [class.correct]="clue.is_correct">
+        <strong>{{ clue.number }}.</strong> {{ clue.clue }} ({{clue.length}})
+      </li>
+    </ul>
+  </div>
+</div>

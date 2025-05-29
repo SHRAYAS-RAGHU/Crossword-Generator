@@ -1,0 +1,33 @@
+<div class="crossword-container" *ngIf="puzzleData">
+  <table class="crossword-grid">
+    <tr *ngFor="let row of grid; let r = index">
+      <td *ngFor="let cell of row; let c = index"
+          [ngClass]="{
+            'input-cell': cell.isInput,
+            'empty-cell': !cell.isInput,
+            'silent-letter': cell.isSilent,
+            'correct-cell': cell.isCorrect && cell.isInput,
+            'disabled-cell': cell.isDisabled
+          }">
+        <div class="cell-content">
+          <span *ngIf="cell.clueNumber && cell.isWordStart" class="clue-number">{{ cell.clueNumber }}</span>
+          <input *ngIf="cell.isInput"
+                 type="text"
+                 maxlength="1"
+                 [id]="getCellId(r, c)"
+                 #inputCell
+                 [(ngModel)]="cell.value"
+                 (input)="onCellInput($event, cell)"
+                 (focus)="onCellFocus(cell)"
+                 (keydown)="handleKeyDown($event, cell)"
+                 [disabled]="cell.isDisabled"
+                 autocomplete="off"
+                 class="char-input"/>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div *ngIf="!puzzleData">
+  Loading crossword...
+</div>
